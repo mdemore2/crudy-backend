@@ -7,5 +7,5 @@ urlpatterns = [
     path('all-items', views.all_items, name='all-items'),
     path("get-item/<int:pkid>", views.read_item,
          name="get-item"),  # <uuid:pkid>
-    path('create-item', views.create_item, name='create-items'),
+    path('create-item', views.create_item, name='create-item'),
 ]

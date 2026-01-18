@@ -34,6 +34,7 @@ def register(request):
     return JsonResponse({'message': 'User created. Please login.'}, status=201)
 
 
+@csrf_exempt
 @require_http_methods(['POST'])
 def login_user(request):
     username = request.POST.get('username')
