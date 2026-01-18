@@ -3,12 +3,15 @@ from django.http import HttpResponse, JsonResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_http_methods
 
 
+@require_http_methods(['GET'])
 def managers(request):
     return HttpResponse('Hello World')
 
 
+@require_http_methods(['POST'])
 def register(request):
     if request.method == 'POST':
         first_name = request.POST.get('first_name')
@@ -31,6 +34,7 @@ def register(request):
     return JsonResponse({'message': 'User created. Please login.'}, status=201)
 
 
+@require_http_methods(['POST'])
 def login_user(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
@@ -40,6 +44,12 @@ def login_user(request):
         return JsonResponse({'message': 'Login successful.'}, status=200)
 
 
+@require_http_methods(['GET'])
 def logout_user(request):
     logout(request)
     return JsonResponse({'message': 'Logout successful.'}, status=200)
+
+
+@require_http_methods(['GET'])
+def login_error(request):
+    return JsonResponse({'message': 'Please login to access this endpoint.'}, status=403)
