@@ -21,8 +21,8 @@ def all_items(request):
 @login_required
 @require_http_methods(['GET'])
 def my_items(request):  # must be logged in
-    payload = serializers.serialize('json', Item.objects.all())
-    return JsonResponse(payload)
+    payload = list(Item.objects.filter(user=request.user).values())
+    return JsonResponse(payload, safe=False)
 
 
 @csrf_exempt
