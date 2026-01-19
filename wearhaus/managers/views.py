@@ -11,6 +11,7 @@ def managers(request):
     return HttpResponse('Hello World')
 
 
+@csrf_exempt
 @require_http_methods(['POST'])
 def register(request):
     if request.method == 'POST':

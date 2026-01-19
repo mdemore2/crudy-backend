@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'corsheaders',
     'inventory',
     'managers',
@@ -70,7 +71,7 @@ CORS_ALLOWED_HEADERS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://localhost:5173",  # Same origins, but for CSRF validation
+    "http://localhost:5173",  # Same origins, but for CSRF validation
 ]
 
 TEMPLATES = [
