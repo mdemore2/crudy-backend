@@ -62,9 +62,13 @@ def edit_item(request, pkid):  # must be your item
 @csrf_exempt
 @login_required
 @require_http_methods(['DELETE'])
-def delete_item(request):  # must be your item
+def delete_item(request, pkid):  # must be your item
+    target = Item.objects.get(pk=pkid)
+    if (target.user != request.user):
+        return JsonResponse({'message': 'You do not have permissions to edit this item'}, status=403)
+    target.delete()
+    return JsonResponse({'message': 'Item deleted'}, status=202)
 
-    pass
 
 # @login_required
 # @require_http_methods(['GET'])
