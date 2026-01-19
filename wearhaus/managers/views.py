@@ -44,7 +44,7 @@ def login_user(request):
         login(request, user)
         return JsonResponse({'message': 'Login successful.'}, status=200)
     else:
-        return JsonResponse({'message': 'unsuccessful login', 'username': username, 'password': password})
+        return JsonResponse({'message': 'unsuccessful login', 'username': username, 'password': password}, status=401)
 
 
 @require_http_methods(['GET'])
