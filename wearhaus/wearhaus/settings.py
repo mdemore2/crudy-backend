@@ -59,6 +59,19 @@ ROOT_URLCONF = 'wearhaus.urls'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
 ]
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_HEADERS = [
+    'accept',
+    'authorization',  # Essential for Bearer tokens
+    'content-type',
+    'origin',
+    'user-agent',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://localhost:5173",  # Same origins, but for CSRF validation
+]
 
 TEMPLATES = [
     {
