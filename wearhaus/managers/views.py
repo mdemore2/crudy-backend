@@ -43,6 +43,8 @@ def login_user(request):
     if user:
         login(request, user)
         return JsonResponse({'message': 'Login successful.'}, status=200)
+    else:
+        return JsonResponse({'message': 'unsuccessful login', 'username': username, 'password': password})
 
 
 @require_http_methods(['GET'])
