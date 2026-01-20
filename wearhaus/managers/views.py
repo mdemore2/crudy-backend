@@ -22,7 +22,7 @@ def register(request):
 
     user = User.objects.filter(username=username)
     if user.exists():
-        return JsonResponse({'error': 'User already exists'}, status=409)
+        return JsonResponse({'message': 'User already exists'}, status=409)
 
     user = User.objects.create_user(
         first_name=first_name,
