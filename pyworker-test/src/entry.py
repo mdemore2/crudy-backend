@@ -1,12 +1,8 @@
-from workers import Response, WorkerEntrypoint
-from uuid import uuid4
-from urllib.parse import urlparse
+from workers import WorkerEntrypoint
+from wearhaus.wsgi import application
+from django_cf import DjangoCF
+import os
 
-class Default(WorkerEntrypoint):
-    async def fetch(self, request):
-        url = urlparse(request.url)
-        if url.path == '/message':
-            return Response('Hello, World!')
-        if url.path == '/random':
-            return Response(str(uuid4()))
-        return Response('Not Found', status=404)
+class Default(DjangoCF, WorkerEntrypoint):
+    def get_app(self):
+        return application

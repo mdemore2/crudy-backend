@@ -6,9 +6,19 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "webtypy>=0.1.7",
+    "asgiref==3.11.0",
+    "Django==6.0.1",
+    "django-cf",
+    "tzdata",
+    "django-cors-headers==4.9.0",
+    "django-filter==25.2",
+    "djangorestframework==3.16.1",
+    "Markdown==3.10",
+    "sqlparse==0.5.5",
 ]
 
 [dependency-groups]
 dev = [
-    "workers-py"
+    "workers-py",
+    "workers-runtime-sdk"
 ]

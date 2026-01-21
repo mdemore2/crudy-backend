@@ -16,7 +16,15 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+  	"d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "crudy-database",
+      "database_id": "a10fefce-d77d-42f3-868b-32cff7482305"
+    }
+  ]
+
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

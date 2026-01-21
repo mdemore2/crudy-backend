@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -95,12 +96,32 @@ WSGI_APPLICATION = 'wearhaus.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
+
+if os.getenv('WORKERS_CI') == "1":
+    DATABASES = {}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django_cf.db.backends.d1',
+            # 'CLOUDFLARE_BINDING' should match the binding name in your wrangler.toml
+            'CLOUDFLARE_BINDING': 'DB',
+        }
     }
-}
+
+
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django_cf.db.backends.d1',
+#        # 'CLOUDFLARE_BINDING' should match the binding name in your wrangler.jsonc
+#        'CLOUDFLARE_BINDING': 'DB',
+#    }
+#}
 
 
 # Password validation
