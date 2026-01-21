@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-#z+i^j90%0qc6ko4yg6!@-)uzxo*c+%w(5nbx1i+b0a=t!51d4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -60,6 +60,8 @@ ROOT_URLCONF = 'wearhaus.urls'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "https://crudy-frontend.pages.dev",
+    "https://wearhaus.markdemore.com"
 ]
 CORS_ALLOW_CREDENTIALS = True
 
@@ -73,6 +75,8 @@ CORS_ALLOWED_HEADERS = [
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",  # Same origins, but for CSRF validation
+    "https://crudy-frontend.pages.dev",
+    "https://wearhaus.markdemore.com"
 ]
 
 TEMPLATES = [
