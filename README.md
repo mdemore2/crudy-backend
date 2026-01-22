@@ -32,3 +32,22 @@ The deployment branch is `pyworker` which leverages Cloudflare's Python Workers 
 
 Deployed using Cloudflare Python Workers, leveraging Cloudflare's D1 Database.
 
+
+## API ROUTES
+
+This is temporary documentation; in the future, I would like to migrate to FastAPI or tack on the DjangoRestFramework to make API documentation automatic.
+
+### /inventory
+
+- GET /all-items
+- GET /my-items (requires login)
+- POST /create-item (requires login)
+- PUT /edit-item/<item-id> (requires login - user can only edit their items)
+- DELETE /delete-item/<item-id> (requires login - user can only delete their items)
+
+### /managers
+
+- POST /register
+- POST /login-user
+- GET /logout-user
+
