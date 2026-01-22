@@ -42,8 +42,8 @@ This is temporary documentation; in the future, I would like to migrate to FastA
 - GET /all-items
 - GET /my-items (requires login)
 - POST /create-item (requires login)
-- PUT /edit-item/<item-id> (requires login - user can only edit their items)
-- DELETE /delete-item/<item-id> (requires login - user can only delete their items)
+- PUT /edit-item/item-id (requires login - user can only edit their items)
+- DELETE /delete-item/item-id (requires login - user can only delete their items)
 
 ### /managers
 
